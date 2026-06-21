@@ -4,6 +4,32 @@
 
 ---
 
+## ⚡ Quick Start
+
+### First-time setup
+```bash
+npm install          # from project root
+cd backend && npx prisma migrate dev
+```
+
+### Run the app (3 separate terminals)
+
+```bash
+# Terminal 1 — Backend API  →  http://localhost:3000/api/v1
+cd backend
+npm run start:dev
+
+# Terminal 2 — Frontend UI  →  http://localhost:5173
+cd frontend
+npm run dev
+
+# Terminal 3 — Database GUI →  http://localhost:5555
+cd backend
+npx prisma studio
+```
+
+---
+
 ## ✨ Features
 
 - 🔐 **Authentication** — JWT-based auth with HTTP-only cookies, bcrypt password hashing, and 2FA (TOTP) support
