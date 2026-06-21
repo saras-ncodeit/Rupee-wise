@@ -1,0 +1,82 @@
+import { PrismaService } from '../prisma/prisma.service';
+import { CreateAccountDto } from './dto/create-account.dto';
+import { UpdateAccountDto } from './dto/update-account.dto';
+export declare class AccountsService {
+    private readonly prisma;
+    constructor(prisma: PrismaService);
+    create(householdId: string, dto: CreateAccountDto): Promise<{
+        id: string;
+        householdId: string;
+        name: string;
+        type: string;
+        color: string | null;
+        createdAt: Date;
+        currency: string;
+        updatedAt: Date;
+        institution: string | null;
+        accountNumberLast4: string | null;
+        openingBalance: import("@prisma/client/runtime/library").Decimal;
+        isActive: boolean;
+        currentBalance: import("@prisma/client/runtime/library").Decimal;
+    }>;
+    findAll(householdId: string): Promise<{
+        id: string;
+        householdId: string;
+        name: string;
+        type: string;
+        color: string | null;
+        createdAt: Date;
+        currency: string;
+        updatedAt: Date;
+        institution: string | null;
+        accountNumberLast4: string | null;
+        openingBalance: import("@prisma/client/runtime/library").Decimal;
+        isActive: boolean;
+        currentBalance: import("@prisma/client/runtime/library").Decimal;
+    }[]>;
+    findOne(householdId: string, id: string): Promise<{
+        id: string;
+        householdId: string;
+        name: string;
+        type: string;
+        color: string | null;
+        createdAt: Date;
+        currency: string;
+        updatedAt: Date;
+        institution: string | null;
+        accountNumberLast4: string | null;
+        openingBalance: import("@prisma/client/runtime/library").Decimal;
+        isActive: boolean;
+        currentBalance: import("@prisma/client/runtime/library").Decimal;
+    }>;
+    update(householdId: string, id: string, dto: UpdateAccountDto): Promise<{
+        id: string;
+        householdId: string;
+        name: string;
+        type: string;
+        color: string | null;
+        createdAt: Date;
+        currency: string;
+        updatedAt: Date;
+        institution: string | null;
+        accountNumberLast4: string | null;
+        openingBalance: import("@prisma/client/runtime/library").Decimal;
+        isActive: boolean;
+        currentBalance: import("@prisma/client/runtime/library").Decimal;
+    }>;
+    remove(householdId: string, id: string): Promise<{
+        id: string;
+        householdId: string;
+        name: string;
+        type: string;
+        color: string | null;
+        createdAt: Date;
+        currency: string;
+        updatedAt: Date;
+        institution: string | null;
+        accountNumberLast4: string | null;
+        openingBalance: import("@prisma/client/runtime/library").Decimal;
+        isActive: boolean;
+        currentBalance: import("@prisma/client/runtime/library").Decimal;
+    }>;
+}

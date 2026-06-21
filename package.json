@@ -1,0 +1,17 @@
+{
+  "name": "budget-tracker-monorepo",
+  "version": "1.0.0",
+  "description": "Collaborative Personal & Household Budget Tracker",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "backend:dev": "npm run start:dev --workspace=backend",
+    "frontend:dev": "npm run dev --workspace=frontend",
+    "dev": "npm run docker:up && npm run dev --workspaces"
+  }
+}

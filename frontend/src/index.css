@@ -1,0 +1,254 @@
+/* Saras RupeeWise CSS Design System */
+
+:root {
+  /* Fonts */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Outfit', sans-serif;
+
+  /* HSL Color Palette (Dark Theme Default) */
+  --hue: 222;
+  --bg-primary: hsl(var(--hue) 47% 6%);
+  --bg-secondary: hsl(var(--hue) 47% 10%);
+  --card-bg: hsl(var(--hue) 47% 13%);
+  --card-border: hsl(var(--hue) 30% 20%);
+  
+  --primary: hsl(250 84% 64%);
+  --primary-hover: hsl(250 84% 58%);
+  --primary-glow: hsla(250, 84%, 64%, 0.15);
+  
+  --secondary: hsl(190 90% 45%);
+  --secondary-glow: hsla(190, 90%, 45%, 0.15);
+  
+  --success: hsl(142 70% 45%);
+  --success-glow: hsla(142, 70%, 45%, 0.1);
+  --warning: hsl(38 95% 55%);
+  --warning-glow: hsla(38, 95%, 55%, 0.1);
+  --danger: hsl(350 85% 58%);
+  --danger-glow: hsla(350, 85%, 58%, 0.1);
+  
+  --text-primary: hsl(var(--hue) 40% 98%);
+  --text-secondary: hsl(var(--hue) 20% 78%);
+  --text-muted: hsl(var(--hue) 15% 55%);
+  
+  /* Glassmorphism options */
+  --glass-bg: rgba(15, 23, 42, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --glass-blur: blur(12px);
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  /* Layout Header/Nav Heights */
+  --header-height: 56px;
+  --nav-height: 64px;
+  --fab-size: 56px;
+  
+  /* Transitions */
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Light Theme Variables Override */
+.light-theme {
+  --bg-primary: hsl(var(--hue) 20% 96%);
+  --bg-secondary: hsl(var(--hue) 20% 92%);
+  --card-bg: hsl(0 0% 100%);
+  --card-border: hsl(var(--hue) 20% 85%);
+  
+  --text-primary: hsl(var(--hue) 47% 12%);
+  --text-secondary: hsl(var(--hue) 20% 35%);
+  --text-muted: hsl(var(--hue) 15% 50%);
+  
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(0, 0, 0, 0.06);
+  --glass-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.08);
+  --glass-blur: blur(12px);
+}
+
+/* Base Styles & Resets */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  overflow-x: hidden;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Touch Targets & Micro-interactions */
+button, select, input, a {
+  min-height: 44px; /* Touch target standard */
+  font-family: var(--font-sans);
+}
+
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+button.primary {
+  background-color: var(--primary);
+  color: #ffffff;
+}
+
+button.primary:hover {
+  background-color: var(--primary-hover);
+  box-shadow: 0 0 16px var(--primary-glow);
+}
+
+button.secondary {
+  background-color: transparent;
+  border: 1px solid var(--card-border);
+}
+
+button.secondary:hover {
+  border-color: var(--primary);
+}
+
+button.success {
+  background-color: var(--success);
+  color: white;
+}
+button.danger {
+  background-color: var(--danger);
+  color: white;
+}
+
+/* Form Controls */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-md);
+}
+
+label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--card-border);
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: border-color var(--transition-fast);
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+/* Custom Cards */
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: transform var(--transition-normal);
+}
+
+.card-glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-shadow);
+  border-radius: var(--radius-lg);
+}
+
+/* Layout Utilities */
+.app-container {
+  max-width: 480px; /* Force mobile-first viewport constraints on desktop */
+  margin: 0 auto;
+  padding: var(--spacing-md) var(--spacing-md) calc(var(--nav-height) + var(--spacing-lg));
+  width: 100%;
+  flex-grow: 1;
+}
+
+/* Bottom Sheet Animation Keyframes */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
